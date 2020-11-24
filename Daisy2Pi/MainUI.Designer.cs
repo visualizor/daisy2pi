@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.CoEf0 = new System.Windows.Forms.TextBox();
             this.Trig0 = new System.Windows.Forms.ComboBox();
             this.Op0 = new System.Windows.Forms.ComboBox();
@@ -67,11 +68,26 @@
             this.UCtSL = new System.Windows.Forms.TrackBar();
             this.UCtLBL = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.PLineRBTN = new System.Windows.Forms.RadioButton();
+            this.CrvRBTN = new System.Windows.Forms.RadioButton();
+            this.AddBTN = new System.Windows.Forms.Button();
+            this.PreviewBTN = new System.Windows.Forms.Button();
+            this.ClrBTN = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.ArrSL = new System.Windows.Forms.TrackBar();
+            this.ColorPicker0 = new System.Windows.Forms.ColorDialog();
+            this.ArrCB = new System.Windows.Forms.CheckBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.CursorAid0 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.U0SL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.U1SL)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UCtSL)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ArrSL)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // CoEf0
@@ -81,7 +97,7 @@
             this.CoEf0.Size = new System.Drawing.Size(34, 22);
             this.CoEf0.TabIndex = 0;
             this.CoEf0.Text = "1";
-            this.CoEf0.TextChanged += new System.EventHandler(this.CoEf0_TextChanged);
+            this.CoEf0.TextChanged += new System.EventHandler(this.CoEf_TextChanged);
             // 
             // Trig0
             // 
@@ -205,7 +221,7 @@
             this.CoEf4.Size = new System.Drawing.Size(34, 22);
             this.CoEf4.TabIndex = 0;
             this.CoEf4.Text = "1";
-            this.CoEf4.TextChanged += new System.EventHandler(this.CoEf0_TextChanged);
+            this.CoEf4.TextChanged += new System.EventHandler(this.CoEf_TextChanged);
             // 
             // Trig2
             // 
@@ -382,7 +398,7 @@
             // U0LBL
             // 
             this.U0LBL.AutoSize = true;
-            this.U0LBL.Location = new System.Drawing.Point(10, 39);
+            this.U0LBL.Location = new System.Drawing.Point(10, 51);
             this.U0LBL.Name = "U0LBL";
             this.U0LBL.Size = new System.Drawing.Size(15, 16);
             this.U0LBL.TabIndex = 18;
@@ -391,7 +407,7 @@
             // U1LBL
             // 
             this.U1LBL.AutoSize = true;
-            this.U1LBL.Location = new System.Drawing.Point(189, 39);
+            this.U1LBL.Location = new System.Drawing.Point(189, 51);
             this.U1LBL.Name = "U1LBL";
             this.U1LBL.Size = new System.Drawing.Size(33, 16);
             this.U1LBL.TabIndex = 19;
@@ -445,9 +461,9 @@
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.U0LBL);
             this.groupBox2.Controls.Add(this.U1SL);
-            this.groupBox2.Location = new System.Drawing.Point(14, 121);
+            this.groupBox2.Location = new System.Drawing.Point(14, 119);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(559, 70);
+            this.groupBox2.Size = new System.Drawing.Size(559, 80);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "u Domain";
@@ -462,15 +478,16 @@
             this.UCtSL.TabIndex = 20;
             this.UCtSL.TickFrequency = 20;
             this.UCtSL.Value = 20;
+            this.UCtSL.Scroll += new System.EventHandler(this.UCtSL_Scroll);
             // 
             // UCtLBL
             // 
             this.UCtLBL.AutoSize = true;
-            this.UCtLBL.Location = new System.Drawing.Point(373, 39);
+            this.UCtLBL.Location = new System.Drawing.Point(373, 51);
             this.UCtLBL.Name = "UCtLBL";
             this.UCtLBL.Size = new System.Drawing.Size(22, 16);
             this.UCtLBL.TabIndex = 19;
-            this.UCtLBL.Text = "60";
+            this.UCtLBL.Text = "20";
             // 
             // label17
             // 
@@ -481,11 +498,129 @@
             this.label17.TabIndex = 16;
             this.label17.Text = "Count";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.PLineRBTN);
+            this.groupBox3.Controls.Add(this.CrvRBTN);
+            this.groupBox3.Controls.Add(this.AddBTN);
+            this.groupBox3.Controls.Add(this.PreviewBTN);
+            this.groupBox3.Location = new System.Drawing.Point(340, 205);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(233, 80);
+            this.groupBox3.TabIndex = 22;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Output";
+            // 
+            // PLineRBTN
+            // 
+            this.PLineRBTN.AutoSize = true;
+            this.PLineRBTN.Location = new System.Drawing.Point(146, 52);
+            this.PLineRBTN.Name = "PLineRBTN";
+            this.PLineRBTN.Size = new System.Drawing.Size(72, 20);
+            this.PLineRBTN.TabIndex = 6;
+            this.PLineRBTN.TabStop = true;
+            this.PLineRBTN.Text = "Polyline";
+            this.PLineRBTN.UseVisualStyleBackColor = true;
+            // 
+            // CrvRBTN
+            // 
+            this.CrvRBTN.AutoSize = true;
+            this.CrvRBTN.Location = new System.Drawing.Point(47, 52);
+            this.CrvRBTN.Name = "CrvRBTN";
+            this.CrvRBTN.Size = new System.Drawing.Size(93, 20);
+            this.CrvRBTN.TabIndex = 5;
+            this.CrvRBTN.TabStop = true;
+            this.CrvRBTN.Text = "Interpolated";
+            this.CrvRBTN.UseVisualStyleBackColor = true;
+            this.CrvRBTN.CheckedChanged += new System.EventHandler(this.CrvRBTN_CheckedChanged);
+            // 
+            // AddBTN
+            // 
+            this.AddBTN.Location = new System.Drawing.Point(124, 21);
+            this.AddBTN.Name = "AddBTN";
+            this.AddBTN.Size = new System.Drawing.Size(103, 25);
+            this.AddBTN.TabIndex = 3;
+            this.AddBTN.Text = "Add Geometry";
+            this.AddBTN.UseVisualStyleBackColor = true;
+            this.AddBTN.Click += new System.EventHandler(this.AddBTN_Click);
+            // 
+            // PreviewBTN
+            // 
+            this.PreviewBTN.Location = new System.Drawing.Point(15, 21);
+            this.PreviewBTN.Name = "PreviewBTN";
+            this.PreviewBTN.Size = new System.Drawing.Size(103, 25);
+            this.PreviewBTN.TabIndex = 2;
+            this.PreviewBTN.Text = "Hide Preview";
+            this.PreviewBTN.UseVisualStyleBackColor = true;
+            this.PreviewBTN.Click += new System.EventHandler(this.PreviewBTN_Click);
+            // 
+            // ClrBTN
+            // 
+            this.ClrBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.ClrBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ClrBTN.Location = new System.Drawing.Point(192, 21);
+            this.ClrBTN.Name = "ClrBTN";
+            this.ClrBTN.Size = new System.Drawing.Size(103, 25);
+            this.ClrBTN.TabIndex = 4;
+            this.ClrBTN.Text = "Preview Color";
+            this.ClrBTN.UseVisualStyleBackColor = false;
+            this.ClrBTN.Click += new System.EventHandler(this.ClrBTN_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 21);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(42, 48);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "Polar\r\nArray\r\nCount";
+            // 
+            // ArrSL
+            // 
+            this.ArrSL.Enabled = false;
+            this.ArrSL.Location = new System.Drawing.Point(51, 27);
+            this.ArrSL.Minimum = 1;
+            this.ArrSL.Name = "ArrSL";
+            this.ArrSL.Size = new System.Drawing.Size(131, 45);
+            this.ArrSL.TabIndex = 0;
+            this.ArrSL.Value = 5;
+            this.ArrSL.Scroll += new System.EventHandler(this.ArrSL_Scroll);
+            // 
+            // ColorPicker0
+            // 
+            this.ColorPicker0.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            // 
+            // ArrCB
+            // 
+            this.ArrCB.AutoSize = true;
+            this.ArrCB.Location = new System.Drawing.Point(192, 52);
+            this.ArrCB.Name = "ArrCB";
+            this.ArrCB.Size = new System.Drawing.Size(58, 20);
+            this.ArrCB.TabIndex = 7;
+            this.ArrCB.Text = "Array";
+            this.ArrCB.UseVisualStyleBackColor = true;
+            this.ArrCB.CheckedChanged += new System.EventHandler(this.ArrCB_CheckedChanged);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.ArrCB);
+            this.groupBox4.Controls.Add(this.ClrBTN);
+            this.groupBox4.Controls.Add(this.ArrSL);
+            this.groupBox4.Controls.Add(this.label18);
+            this.groupBox4.Location = new System.Drawing.Point(14, 205);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(315, 80);
+            this.groupBox4.TabIndex = 23;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Preview";
+            // 
             // MainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 207);
+            this.ClientSize = new System.Drawing.Size(584, 296);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -499,6 +634,11 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UCtSL)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ArrSL)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -544,6 +684,18 @@
         private System.Windows.Forms.TrackBar UCtSL;
         private System.Windows.Forms.Label UCtLBL;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button ClrBTN;
+        private System.Windows.Forms.Button AddBTN;
+        private System.Windows.Forms.Button PreviewBTN;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TrackBar ArrSL;
+        private System.Windows.Forms.ColorDialog ColorPicker0;
+        private System.Windows.Forms.RadioButton PLineRBTN;
+        private System.Windows.Forms.RadioButton CrvRBTN;
+        private System.Windows.Forms.CheckBox ArrCB;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ToolTip CursorAid0;
     }
 }
 
