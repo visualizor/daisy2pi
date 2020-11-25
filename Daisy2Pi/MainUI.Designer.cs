@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.CoEf0 = new System.Windows.Forms.TextBox();
             this.Trig0 = new System.Windows.Forms.ComboBox();
             this.Op0 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -80,6 +79,7 @@
             this.ArrCB = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.CursorAid0 = new System.Windows.Forms.ToolTip(this.components);
+            this.CoEf0 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.U0SL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.U1SL)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -88,16 +88,8 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ArrSL)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CoEf0)).BeginInit();
             this.SuspendLayout();
-            // 
-            // CoEf0
-            // 
-            this.CoEf0.Location = new System.Drawing.Point(42, 23);
-            this.CoEf0.Name = "CoEf0";
-            this.CoEf0.Size = new System.Drawing.Size(34, 22);
-            this.CoEf0.TabIndex = 0;
-            this.CoEf0.Text = "1";
-            this.CoEf0.TextChanged += new System.EventHandler(this.CoEf_TextChanged);
             // 
             // Trig0
             // 
@@ -106,9 +98,9 @@
             "sin",
             "cos",
             "tan"});
-            this.Trig0.Location = new System.Drawing.Point(105, 23);
+            this.Trig0.Location = new System.Drawing.Point(114, 23);
             this.Trig0.Name = "Trig0";
-            this.Trig0.Size = new System.Drawing.Size(58, 24);
+            this.Trig0.Size = new System.Drawing.Size(50, 24);
             this.Trig0.TabIndex = 1;
             // 
             // Op0
@@ -127,7 +119,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(84, 27);
+            this.label1.Location = new System.Drawing.Point(93, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(15, 16);
             this.label1.TabIndex = 3;
@@ -230,9 +222,9 @@
             "sin",
             "cos",
             "tan"});
-            this.Trig2.Location = new System.Drawing.Point(105, 57);
+            this.Trig2.Location = new System.Drawing.Point(114, 58);
             this.Trig2.Name = "Trig2";
-            this.Trig2.Size = new System.Drawing.Size(58, 24);
+            this.Trig2.Size = new System.Drawing.Size(50, 24);
             this.Trig2.TabIndex = 1;
             // 
             // Op1
@@ -251,7 +243,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(84, 61);
+            this.label7.Location = new System.Drawing.Point(93, 60);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(15, 16);
             this.label7.TabIndex = 3;
@@ -415,8 +407,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.Trig0);
             this.groupBox1.Controls.Add(this.CoEf0);
+            this.groupBox1.Controls.Add(this.Trig0);
             this.groupBox1.Controls.Add(this.CoEf4);
             this.groupBox1.Controls.Add(this.Op0);
             this.groupBox1.Controls.Add(this.Trig2);
@@ -614,6 +606,29 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Preview";
             // 
+            // CoEf0
+            // 
+            this.CoEf0.DecimalPlaces = 2;
+            this.CoEf0.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            131072});
+            this.CoEf0.Location = new System.Drawing.Point(42, 25);
+            this.CoEf0.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.CoEf0.Name = "CoEf0";
+            this.CoEf0.Size = new System.Drawing.Size(50, 22);
+            this.CoEf0.TabIndex = 14;
+            this.CoEf0.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // MainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -639,13 +654,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.ArrSL)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CoEf0)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox CoEf0;
         private System.Windows.Forms.ComboBox Trig0;
         private System.Windows.Forms.ComboBox Op0;
         private System.Windows.Forms.Label label1;
@@ -696,6 +710,7 @@
         private System.Windows.Forms.CheckBox ArrCB;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ToolTip CursorAid0;
+        private System.Windows.Forms.NumericUpDown CoEf0;
     }
 }
 
