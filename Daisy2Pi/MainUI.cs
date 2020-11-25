@@ -47,28 +47,6 @@ namespace Daisy2Pi
             U0LBL.Text = string.Format("{0:0.00}", U0SL.Value / 100.0 * 2 * Math.PI);
             U1LBL.Text = string.Format("{0:0.00}", U1SL.Value / 100.0 * 2 * Math.PI);
 
-            CoEf0.KeyUp += OnCoEfEnter; // textchanged handler already set in visual designer for 0
-            CoEf0.Leave += OnCoEfLeave;
-            CoEf1.TextChanged += CoEf_TextChanged;
-            CoEf1.KeyUp += OnCoEfEnter;
-            CoEf1.Leave += OnCoEfLeave;
-            CoEf2.TextChanged += CoEf_TextChanged;
-            CoEf2.KeyUp += OnCoEfEnter;
-            CoEf2.Leave += OnCoEfLeave;
-            CoEf3.TextChanged += CoEf_TextChanged;
-            CoEf3.KeyUp += OnCoEfEnter;
-            CoEf3.Leave += OnCoEfLeave;
-            CoEf4.KeyUp += OnCoEfEnter; // textchanged handler already set in visual designer for 4
-            CoEf4.Leave += OnCoEfLeave;
-            CoEf5.TextChanged += CoEf_TextChanged;
-            CoEf5.KeyUp += OnCoEfEnter;
-            CoEf5.Leave += OnCoEfLeave;
-            CoEf6.TextChanged += CoEf_TextChanged;
-            CoEf6.KeyUp += OnCoEfEnter;
-            CoEf6.Leave += OnCoEfLeave;
-            CoEf7.TextChanged += CoEf_TextChanged;
-            CoEf7.KeyUp += OnCoEfEnter;
-            CoEf7.Leave += OnCoEfLeave;
             var menustrip = new ContextMenu(); //empty context strip
             Trig0.KeyPress += BlockKeyPress;
             Trig0.SelectedIndexChanged += OnTrigChange;
@@ -88,65 +66,58 @@ namespace Daisy2Pi
             Op1.KeyPress += BlockKeyPress;
             Op1.SelectedIndexChanged += OnTrigChange;
             Op1.ContextMenu = menustrip;
+
+            CoEf0.ValueChanged += OnNUD;
+            CoEf0.ContextMenu = menustrip;
+            CoEf1.ValueChanged += OnNUD;
+            CoEf1.ContextMenu = menustrip;
+            CoEf2.ValueChanged += OnNUD;
+            CoEf3.ContextMenu = menustrip;
+            CoEf3.ValueChanged += OnNUD;
+            CoEf4.ValueChanged += OnNUD;
+            CoEf4.ContextMenu = menustrip;
+            CoEf5.ValueChanged += OnNUD;
+            CoEf5.ContextMenu = menustrip;
+            CoEf6.ValueChanged += OnNUD;
+            CoEf6.ContextMenu = menustrip;
+            CoEf7.ValueChanged += OnNUD;
+            CoEf7.ContextMenu = menustrip;
         }
 
         #region event handlers
-        private void CoEf_TextChanged(object s, EventArgs e)
-        {
-            TextBox tb = s as TextBox;
-            string txt = tb.Text;
-            HandleTxtBx(tb, out bool parsed);
-            cmd.RedrawViews();
-        }
-        private void OnCoEfEnter(object s, KeyEventArgs e)
-        {
-            if (e.KeyCode != Keys.Enter) return;
 
-            TextBox tb = s as TextBox;
-            string txt = tb.Text;
-            HandleTxtBx(tb, out bool parsed);
-            if (!parsed) tb.Text = "1";
-            cmd.RedrawViews();
-        }
-        private void OnCoEfLeave(object s, EventArgs e)
+        private void OnNUD(object s, EventArgs e)
         {
-            TextBox tb = s as TextBox;
-            string txt = tb.Text;
-            HandleTxtBx(tb, out bool parsed);
-            if (!parsed) tb.Text = "1";
-            cmd.RedrawViews();
-        }
-        private void HandleTxtBx(TextBox tb, out bool parsed)
-        {
-            parsed = false;
-            switch (tb.Name)
+            NumericUpDown nud = s as NumericUpDown;
+            switch (nud.Name)
             {
                 case "CoEf0":
-                    parsed = double.TryParse(tb.Text, out f0);
+                    f0 = (double)nud.Value;
                     break;
                 case "CoEf1":
-                    parsed = double.TryParse(tb.Text, out f1);
+                    f1 = (double)nud.Value;
                     break;
                 case "CoEf2":
-                    parsed = double.TryParse(tb.Text, out f2);
+                    f2 = (double)nud.Value;
                     break;
                 case "CoEf3":
-                    parsed = double.TryParse(tb.Text, out f3);
+                    f3 = (double)nud.Value;
                     break;
                 case "CoEf4":
-                    parsed = double.TryParse(tb.Text, out f4);
+                    f4 = (double)nud.Value;
                     break;
                 case "CoEf5":
-                    parsed = double.TryParse(tb.Text, out f5);
+                    f5 = (double)nud.Value;
                     break;
                 case "CoEf6":
-                    parsed = double.TryParse(tb.Text, out f6);
+                    f6 = (double)nud.Value;
                     break;
                 case "CoEf7":
-                    parsed = double.TryParse(tb.Text, out f7);
+                    f7 = (double)nud.Value;
                     break;
                 default: break;
             }
+            cmd.RedrawViews();
         }
 
         private void OnTrigChange(object s, EventArgs e)
